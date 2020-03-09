@@ -149,7 +149,13 @@ def logout():
         msg = "You have been logged out successfuly"
         return render_template('physician_login.html', msg = msg)
 
-
+@app.route('/delete/<string:email>')
+def delete_patient(email):
+    if 'loggedin' in session:
+        cursor = mysql.connection.cursor()
+        cursor.execute('UPDATE patients SET is_taken = 0, physician_id = %s WHERE email = %s', [None, email])
+        mysql.connection.commit()
+        return redirect('/physician/profile')
 
 
 
