@@ -1,0 +1,7 @@
+Python 3.7.4
+
+Dependencies can be installed using the following commands:
+
+pip install flask
+pip install flask-mysqldb
+pip install flask-bcrypt
